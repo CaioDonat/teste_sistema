@@ -1,0 +1,53 @@
+
+ Particionamento de equivalencia
+
+Entrada
+
+    Programacao
+    
+    ● Particionamento de equivalência
+    ● Análise de valor limite
+    ● Tabela de decisão
+
+        para esse campo pussui sim um "pré-filtro" ';', sabemos que havera ';' dividindo os parametros de cada registro (entrada)
+        então -> "zé;1;1" => é sim uma entrada valida, mas
+        "zé,1,1","zé.1:1","zé\1/1" => são todas entradas já entendida como invalida (pre-supondo que havera um filtro evitando isso).
+
+        entrada de tipo diferente da qual foi idealizada;
+        it;1;2      //validação esperada
+        look in;1;2 //nome com espaço no campo nomeFimel
+        it part 2   //nome com 2 espaço e numero no campo nomeFimel
+        $;1;2       //char -> string
+        äñá;1;2     //acentuação
+        !;@;#       //char -> int
+        2012;1;2    //numero -> string
+        11/11/11;1;2    //caracter especial no nome do filme
+        \n;1;2      //função interna de programação
+        ;;          //entrada sem valores
+                    //entrada vazia
+
+        
+        4
+        Batman;16;3
+        Batman;16;20
+        Os Trapalhos;L;0
+        Os Trapalhos;L;-0
+        Os Trapalhos;L;+0
+        Os Trapalhos;L;+1
+        Os Trapalhos;L;-1
+        Os Trapalhos;L;0,1
+        Os Trapalhos;L;0.1
+        Os Trapalhos;L;-0,1
+        Os Trapalhos, parte 2;L;0
+        Os Trapalhos parte 2;L;0
+        2012;L;0
+        007;L;0
+
+
+    Agendamento
+
+        5
+        Maria;25;Batman
+
+
+Saida

@@ -19,6 +19,7 @@ public class Test {
 
       Scanner scr2 = new Scanner(System.in);
       String entradaFull = scr2.nextLine();
+      entradaValida(entradaFull);
       ProgramacaoCinema programacaoCinema = new ProgramacaoCinema(entradaFull);
       programacosCinema.add(programacaoCinema);
     }
@@ -59,7 +60,18 @@ public class Test {
     System.out.println(String.valueOf(saidaString));
   }
 
-    /*Entradas
+  private static void entradaValida(String entradaFull) {
+
+    try{
+      entradaFull.split(";", 3);
+
+    }catch(Exception e){
+      System.out.println("Erro => " + e);
+    }
+  }
+
+/*
+Entradas
 
 3
 Batman;16;3
@@ -72,7 +84,7 @@ Mateus;15;Os Vingadores
 Pedro;20;Batman
 Marcos;17;Os Vingadores
 Beatriz;30;Os Vingadores
-Joana;50;Porto Seguro
+Joana;50;Porto Segurob
 Felipe;18;Batman
 
 */
