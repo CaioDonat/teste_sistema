@@ -72,6 +72,7 @@ Entrada
         \n;1;2      //função interna de programação
         ;;          //entrada sem valores
                     //entrada vazia
+<<<<<<< HEAD
 
         /*
         It;1;2          
@@ -88,6 +89,9 @@ Entrada
 
         
         4
+=======
+                    
+>>>>>>> b77488eff1fe9a03da0445d6204e527b38c96711
         Batman;16;3
         Batman;16;20
         Os Trapalhos;L;0
@@ -103,6 +107,7 @@ Entrada
         2012;L;0
         007;L;0
 
+<<<<<<< HEAD
 
     Agendamento
 
@@ -111,3 +116,11 @@ Entrada
 
 
 Saida
+=======
+    Agendamento
+
+        Maria;25;Batman
+
+
+Saida
+>>>>>>> b77488eff1fe9a03da0445d6204e527b38c96711
