@@ -1,3 +1,7 @@
+/**
+Como forma de roterizacao foi utilizado comentario direto no codigo
+ */
+
 package package_one;
 
 import java.util.ArrayList;
@@ -8,13 +12,28 @@ public class Test {
   public static void main(String[] args) {
 
     //no fim de cada "registro" (nome;idade;filme) [ENTER]
+
     
     //Agendamento
+    List<Agendamento> agendamentos = new ArrayList<Agendamento>();
+    System.out.println("number of entry");
+    Scanner scr2 = new Scanner(System.in);
+    int numberOfEntry1 = scr2.nextInt();
+
+    for (int i=0; i<numberOfEntry1; i++){        //valido (0 > numberOfEntry > 15 & numberOfEntry == int)
+      Scanner scr3 = new Scanner(System.in);
+      System.out.printf("%dº Programação do Cinema: \n", (i+1));  //show what user have to type
+      String entradaFull = scr3.nextLine();     //necessario validar 'entradaFull' ('name's people';'age old';'name's movie')
+      Agendamento agendamento = new Agendamento(entradaFull);
+      agendamentos.add(agendamento);
+    }
+
+    //ProgramacaoCinema
     List<ProgramacaoCinema> programacosCinema = new ArrayList<ProgramacaoCinema>();
     System.out.print("number of entry: ");
     Scanner scr = new Scanner(System.in);
-    int numberOfEntry = scr.nextInt();
-    for (int i=0; i<numberOfEntry; i++){
+    int numberOfEntry2 = scr.nextInt();
+    for (int i=0; i<numberOfEntry2; i++){
       System.out.printf("%dº Entrada de Agendamento: \n", (i+1));
 
       Scanner scr2 = new Scanner(System.in);
@@ -22,21 +41,6 @@ public class Test {
       entradaValida(entradaFull);
       ProgramacaoCinema programacaoCinema = new ProgramacaoCinema(entradaFull);
       programacosCinema.add(programacaoCinema);
-    }
-
-    //ProgramacaoCinema
-    List<Agendamento> agendamentos = new ArrayList<Agendamento>();
-    System.out.println("number of entry");
-    Scanner scr2 = new Scanner(System.in);
-    numberOfEntry = scr2.nextInt();
-    for (int i=0; i<numberOfEntry; i++){
-      Scanner scr3 = new Scanner(System.in);
-      System.out.printf("%dº Programação do Cinema: \n", (i+1));
-
-      String entradaFull = scr3.nextLine();
-      Agendamento agendamento = new Agendamento(entradaFull);
-      agendamentos.add(agendamento);
-      
     }
 
     //Saida
