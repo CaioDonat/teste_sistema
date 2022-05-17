@@ -1,3 +1,50 @@
+Objetivo geral
+  Verificar regras de negocio
+
+    Objetivo especifico
+      ...
+    
+        Entradas
+            Agendamento
+                0
+                7,5
+                16              //Infingindo o numero maximo de programacoes permitidas, nesse caso sera solicitado uma segunda entrada.
+                15              //Respeitando o numero max de programacoes permitidas
+                                //Iniciar uma serie de entradas invalidas
+                Donat;130;Suzume no Tojimari    //apenas 0.004% da populacao tem acima de 100 anos e a pessoa mais velhas do mundo possuia 122 anos (Jeanne Calment)
+                Donat;-20;Suzume no Tojimari    //Nao e possivel possuir idade menor que 0.
+                ;20;Suzume no Tojimari          //Nome nao declarado
+                Donat;;Suzume no Tojimari       //Idade nao declarada
+                Donat:20;                       //Filme nao declarado
+                20;20;Suzume no Tojimari        //Nome invalido
+                Donat;t%!;Suzume no Tojimari    //Idade invalida
+                                //Fim da serie de entradas invalidas
+                Rorschach;35;Whatchmen
+                Zero Two;17;Jujutsu Kaisen 0
+                Enderson;21;Jujutsu Kaisen 0
+
+            Programacao
+                0
+                1,5
+                4               //Infingindo o numero maximo de programacoes permitidas, nesse caso sera solicitado uma segunda entrada.
+                3               //Respeitando o numero max de programacoes permitidas
+                                //Iniciar uma serie de entradas invalidas
+                It parte 2;x;0  //Idade minima invalida
+                Her;16;16       //Execede a capacidade maxima da sala
+                ;15;15          //Nome do filme nao declarado
+                Her;;15         //Idade minima nao declarada
+                Her;15;         //Capacidade nao declarada
+                                //Fim das entradas invalidas
+                Suzume no Tojimari;L;15
+                Whatchmen;18;15
+                Jujutsu Kaisen 0;16;15
+
+
+                
+        Saida
+
+--  --  --  --
+
 
  Particionamento de equivalencia
 
@@ -25,6 +72,19 @@ Entrada
         \n;1;2      //função interna de programação
         ;;          //entrada sem valores
                     //entrada vazia
+
+        /*
+        It;1;2          
+        Look in;1;2
+        It part 2;1;2
+        $;1;2
+        äñá;1;2
+        !;@;# 
+        2012;1;2
+        2012,2;1;2
+        2012.2;1;2
+        11/11/11;1;2
+        */
 
         
         4
