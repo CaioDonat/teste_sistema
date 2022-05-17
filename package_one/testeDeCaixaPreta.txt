@@ -1,47 +1,72 @@
 Objetivo geral
-  Verificar regras de negocio
+  Verificar regras de negocio e regex
+
+  Obsevacoes
+    Esse campo pussui sim um "pré-filtro" ';', sabemos que havera ';' dividindo os parametros de cada registro (entrada) então -> "zé;1;1" => é sim uma entrada valida, mas "zé,1,1","zé.1:1","zé\1/1" => são todas entradas já entendida como invalida (pre-supondo que havera um filtro evitando isso).
 
     Objetivo especifico
       ...
     
         Entradas
             Agendamento
-                0
-                7,5
+                0               //Valor invalido
+                7,5             //Valor invalido
                 16              //Infingindo o numero maximo de programacoes permitidas, nesse caso sera solicitado uma segunda entrada.
                 15              //Respeitando o numero max de programacoes permitidas
-                                //Iniciar uma serie de entradas invalidas
                 Donat;130;Suzume no Tojimari    //apenas 0.004% da populacao tem acima de 100 anos e a pessoa mais velhas do mundo possuia 122 anos (Jeanne Calment)
                 Donat;-20;Suzume no Tojimari    //Nao e possivel possuir idade menor que 0.
+                Donat;20,4;Suzume no Tojimari   //Idade quebrada
                 ;20;Suzume no Tojimari          //Nome nao declarado
                 Donat;;Suzume no Tojimari       //Idade nao declarada
                 Donat:20;                       //Filme nao declarado
                 20;20;Suzume no Tojimari        //Nome invalido
                 Donat;t%!;Suzume no Tojimari    //Idade invalida
-                                //Fim da serie de entradas invalidas
-                Rorschach;35;Whatchmen
-                Zero Two;17;Jujutsu Kaisen 0
-                Enderson;21;Jujutsu Kaisen 0
+                Donat;22;Suzume no Tojimari     //1-1 Valida
+                Donat;22;Whatchmen              //Invalido pois "Donat" ja foi declarado para outro filme
+                Rorschach;35;Suzume no Tojimari //1-2 V
+                Zero Two;17;Suzume no Tojimari  //1-3 V
+                Enderson;21;Suzume no Tojimari  //1-4 V
+                Caio;21;Suzume no Tojimari      //1-5 V
+                Henrique;20;Suzume no Tojimari  //Invalido pois a sala de 'Suzume no Tojimari' possui apenas 5 lugares.
+                Anne;10;Jujutsu Kaisen 0        //Nao atinge a idade minima
+                Gaia;80;Jujutsu Kaisen 0        //2-1 V
+                Higia;40;Jujutsu Kaisen 0       //2-2 V
+                Thor;50;Jujutsu Kaisen 0        //2-3 V
+                Odin;40;Jujutsu Kaisen 0        //2-4 V
+                Hela;45;Jujutsu Kaisen 0        //2-5 V
+
 
             Programacao
-                0
-                1,5
+                0               //Valor invalido
+                1,5             //Valor invalido
                 4               //Infingindo o numero maximo de programacoes permitidas, nesse caso sera solicitado uma segunda entrada.
                 3               //Respeitando o numero max de programacoes permitidas
-                                //Iniciar uma serie de entradas invalidas
                 It parte 2;x;0  //Idade minima invalida
                 Her;16;16       //Execede a capacidade maxima da sala
                 ;15;15          //Nome do filme nao declarado
                 Her;;15         //Idade minima nao declarada
                 Her;15;         //Capacidade nao declarada
-                                //Fim das entradas invalidas
-                Suzume no Tojimari;L;15
-                Whatchmen;18;15
-                Jujutsu Kaisen 0;16;15
-
+                Suzume no Tojimari;L;5
+                Whatchmen;18;5
+                Jujutsu Kaisen 0;16;5
 
                 
         Saida
+            Suzume no Tojimari
+            Donat
+            Rorschach
+            Zero Two
+            Enderson
+            Caio
+
+            Whatchmen
+
+            Jujutsu Kaisen 0
+            Gaia
+            Higia
+            Thor
+            Odin
+            Hela
 
 --  --  --  --
 
@@ -56,9 +81,7 @@ Entrada
     ● Análise de valor limite
     ● Tabela de decisão
 
-        para esse campo pussui sim um "pré-filtro" ';', sabemos que havera ';' dividindo os parametros de cada registro (entrada)
-        então -> "zé;1;1" => é sim uma entrada valida, mas
-        "zé,1,1","zé.1:1","zé\1/1" => são todas entradas já entendida como invalida (pre-supondo que havera um filtro evitando isso).
+        
 
         entrada de tipo diferente da qual foi idealizada;
         it;1;2      //validação esperada
@@ -72,7 +95,6 @@ Entrada
         \n;1;2      //função interna de programação
         ;;          //entrada sem valores
                     //entrada vazia
-<<<<<<< HEAD
 
         /*
         It;1;2          
@@ -89,9 +111,6 @@ Entrada
 
         
         4
-=======
-                    
->>>>>>> b77488eff1fe9a03da0445d6204e527b38c96711
         Batman;16;3
         Batman;16;20
         Os Trapalhos;L;0
@@ -107,7 +126,6 @@ Entrada
         2012;L;0
         007;L;0
 
-<<<<<<< HEAD
 
     Agendamento
 
@@ -116,11 +134,3 @@ Entrada
 
 
 Saida
-=======
-    Agendamento
-
-        Maria;25;Batman
-
-
-Saida
->>>>>>> b77488eff1fe9a03da0445d6204e527b38c96711
