@@ -2,7 +2,7 @@
 Como forma de roterizacao foi utilizado comentario direto no codigo
  */
 
-package package_one;
+package senai.src.main.java.br.com.senai.dal;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package package_one;
+package senai.src.main.java.br.com.senai.dal;
 
 public class ProgramacaoCinema {
     
