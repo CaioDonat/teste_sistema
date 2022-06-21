@@ -4,11 +4,15 @@
  */
 package br.com.farmaciahigia_frenteloja.telas;
 
+import br.com.farmaciahigia_frenteloja.core.*;
+
 import java.text.DateFormat;
 import java.text.FieldPosition;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -21,6 +25,8 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     String usuario = null;
     
+    public List<Agendamento> schedules = new ArrayList<Agendamento>();
+    public List<ProgramacaoCinema> moviesProgramming = new ArrayList<ProgramacaoCinema>();
     
     public TelaInicial() {
         initComponents();
@@ -52,12 +58,10 @@ public class TelaInicial extends javax.swing.JFrame {
         jDesktopPane_TelaIniciar = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem_CadastroCliente = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem_AgendamentoFilme = new javax.swing.JMenuItem();
+        jMenuItem4_ProgramaçãoCinema = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem_Saida = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -99,34 +103,38 @@ public class TelaInicial extends javax.swing.JFrame {
         );
         jDesktopPane_TelaIniciarLayout.setVerticalGroup(
             jDesktopPane_TelaIniciarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 385, Short.MAX_VALUE)
+            .addGap(0, 468, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Cadastro");
 
-        jMenuItem_CadastroCliente.setText("Cliente");
-        jMenuItem_CadastroCliente.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem_AgendamentoFilme.setText("Agendamento Filme");
+        jMenuItem_AgendamentoFilme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_CadastroClienteActionPerformed(evt);
+                jMenuItem_AgendamentoFilmeActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem_CadastroCliente);
+        jMenu1.add(jMenuItem_AgendamentoFilme);
 
-        jMenuItem4.setText("Ordem Serviço");
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem2.setText("Usuário");
-        jMenu1.add(jMenuItem2);
+        jMenuItem4_ProgramaçãoCinema.setText("Programação Cinema");
+        jMenuItem4_ProgramaçãoCinema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4_ProgramaçãoCinemaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4_ProgramaçãoCinema);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Relatório");
 
-        jMenuItem7.setText("Cliente");
-        jMenu2.add(jMenuItem7);
-
-        jMenuItem8.setText("Ordem Serviço");
-        jMenu2.add(jMenuItem8);
+        jMenuItem_Saida.setText("Saida");
+        jMenuItem_Saida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Saida(evt);
+            }
+        });
+        jMenu2.add(jMenuItem_Saida);
 
         jMenuBar1.add(jMenu2);
 
@@ -169,15 +177,15 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDesktopPane_TelaIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDesktopPane_TelaIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(810, 480));
+        setSize(new java.awt.Dimension(810, 557));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -185,27 +193,13 @@ public class TelaInicial extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuItem_SairActionPerformed
 
-    private void jMenuItem_CadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CadastroClienteActionPerformed
-        //TelaCadastroUsuario telaCadastroUsuario = new TelaCadastroUsuario();
-        //telaCadastroUsuario.setVisible(true);
-        
-        //jFrame
-        //jFrame_CadastroUsuario.setContentPane(jDesktopPane_TelaIniciar.getContent);
-        //JFrame_CadastroUsuario jFrame_CadastroUsuario = new JFrame_CadastroUsuario();
-        //jDesktopPane_TelaIniciar.add(jFrame_CadastroUsuario);
-        
-        //jPanel
-        //JPanel_CadastroUsuario jPanel_CadastroUsuario = new JPanel_CadastroUsuario();
-        //jPanel_CadastroUsuario.setVisible(true);
-        //jDesktopPane_TelaIniciar.add(jPanel_CadastroUsuario);
-        
+    private void jMenuItem_AgendamentoFilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_AgendamentoFilmeActionPerformed
         //JInternalFrame
-        JInternalFrame_CadastroUsuario jifcu = new JInternalFrame_CadastroUsuario();
-        jifcu.setVisible(true);
-        jDesktopPane_TelaIniciar.add(jifcu);
+        JInternalFrame_Agendamento jifa = new JInternalFrame_Agendamento();
+        jifa.setVisible(true);
+        jDesktopPane_TelaIniciar.add(jifa);
         
-
-    }//GEN-LAST:event_jMenuItem_CadastroClienteActionPerformed
+    }//GEN-LAST:event_jMenuItem_AgendamentoFilmeActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
@@ -214,6 +208,27 @@ public class TelaInicial extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         
     }//GEN-LAST:event_formWindowActivated
+
+    private void jMenuItem4_ProgramaçãoCinemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4_ProgramaçãoCinemaActionPerformed
+        //JInternalFrame
+        JInternalFrame_ProgramacaoCinema jifpc = new JInternalFrame_ProgramacaoCinema();
+        jifpc.setVisible(true);
+        jDesktopPane_TelaIniciar.add(jifpc);
+        if (jifpc.pC!=null){
+            System.out.println(moviesProgramming.size());
+            moviesProgramming.add(jifpc.pC);
+            jifpc.pC=null;
+            
+            System.out.println(moviesProgramming.size());
+        }
+    }//GEN-LAST:event_jMenuItem4_ProgramaçãoCinemaActionPerformed
+
+    private void jMenuItem_Saida(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Saida
+        //JInternalFrame
+        JInternalFrame_Saida jifs = new JInternalFrame_Saida();
+        jifs.setVisible(true);
+        jDesktopPane_TelaIniciar.add(jifs);
+    }//GEN-LAST:event_jMenuItem_Saida
 
     /**
      * @param args the command line arguments
@@ -264,12 +279,10 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem4_ProgramaçãoCinema;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem_CadastroCliente;
+    private javax.swing.JMenuItem jMenuItem_AgendamentoFilme;
+    private javax.swing.JMenuItem jMenuItem_Saida;
     private javax.swing.JMenuItem jMenuItem_Sair;
     private javax.swing.JPopupMenu jPopupMenu1;
     // End of variables declaration//GEN-END:variables

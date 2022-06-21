@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Agendamento</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+
+
+  <script>
+
+async function fetchData() {
+  const response = await fetch('http://127.0.0.1:8000/api/programacaos/movie_list');
+  const data = await response.json();
+
+  data.forEach(obj => {
+  var x = document.createElement("OPTION");
+      Object.entries(obj).forEach(([key, value]) => {
+        if (key == "id_programacao"){
+          x.setAttribute("value", value);
+        }else{
+          var t = document.createTextNode(value);
+          x.appendChild(t);
+          document.getElementById("id_programacao").appendChild(x);
+        }
+      });
+  });
+}
+        fetchData();
+      </script>
+
+  <body id="body">
+    <form action="/">
+      <div class="title">
+        <h2>Cadastro Agendamento</h2>
+      </div>
+      <div class="info">
+        <input id="people_name" type="text" name="people_name" placeholder="People Name">
+
+        <input id="age_people" type="text" name="age_people" placeholder="Age People">
+
+        <select name="movie_name" id="id_programacao">
+          <option value="0">Select Movie*</option>
+        </select>
+      </div>
+    </form>
+
+    <button onclick="RegistrarAgendamento(
+      document.getElementById('people_name').value,
+      document.getElementById('age_people').value,
+      document.getElementById('id_programacao').value
+        )">Cadastrar</button>
+    
+    <div id="retorno">
+      <p>retorno</p>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

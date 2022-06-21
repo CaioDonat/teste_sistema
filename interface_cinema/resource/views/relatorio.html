@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Document</title>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="/css/app.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <script>
+      async function fetchData() {
+        const response = await fetch('http://127.0.0.1:8000/api/programacaos/movie_list');
+        const data = await response.json();
+      
+        data.forEach(obj => {
+        var x = document.createElement("OPTION");
+            Object.entries(obj).forEach(([key, value]) => {
+              if (key == "id_programacao"){
+                x.setAttribute("value", value);
+              }else{
+                var t = document.createTextNode(value);
+                x.appendChild(t);
+                document.getElementById("id_programacao").appendChild(x);
+              }
+            });
+        });
+      }
+      fetchData();
+    </script>
+
+    <body>
+        <p>Relatorio</p>
+
+        <select name="movie_name" id="id_programacao">
+            <option value="0">Select Movie*</option>
+        </select>
+        <button onclick="RelatorioMovie(
+            document.getElementById('id_programacao').value, 
+        )">Gerar Relatorio</button>
+        <div>
+          <table class="primeiro-numero" id="primeiroFila">
+            <tr>lista de clientes</tr>
+          </table>
+      </div>
+    </body>
+    <script src="/js/script.js"></script>
+</html>
