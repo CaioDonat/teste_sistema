@@ -15,6 +15,40 @@ $capabilities = DesiredCapabilities::chrome();
 $driver = RemoteWebDriver::create($host, $capabilities);
 
 $driver->get('http://127.0.0.1:8800');
+// print title of the current page to output
+echo "The title is '" . $driver->getTitle() . "'\n";
+
+// print URL of current page to output
+echo "The current URL is '" . $driver->getCurrentURL() . "'\n";
+
+$programacaoCinema = $driver->findElement(WebDriverBy::id('iFrameProgramacaoCinema'));
+
+echo $programacaoCinema->getText() . " clicked'\n";
+
+$programacaoCinema->click();
+
+
+$nomeFilme = $driver->findElement(WebDriverBy::id('nomeFilme'));
+
+$nomeFilme->sendKeys('Suzume no Tojimari - 2');
+
+$faixaEtaria = $driver->findElement(WebDriverBy::id('faixaEtaria'));
+
+$faixaEtaria->sendKeys('10');
+
+$capacidadeSala = $driver->findElement(WebDriverBy::id('capacidadeSala'));
+
+$capacidadeSala->sendKeys('12');
+
+//button
+$registrarFilme = $driver->findElement(WebDriverBy::id('registrarFilme'));
+
+$registrarFilme->click();
+
+
+// terminate the session and close the browser
+//$driver->exit();
+
 /*
 // write 'PHP' in the search box
 $driver->findElement(WebDriverBy::id('searchInput')) // find search input element
@@ -25,18 +59,7 @@ $driver->findElement(WebDriverBy::id('searchInput')) // find search input elemen
 $driver->wait()->until(
     WebDriverExpectedCondition::elementTextContains(WebDriverBy::id('firstHeading'), 'PHP')
 );
-*/
-// print title of the current page to output
-echo "The title is '" . $driver->getTitle() . "'\n";
 
-// print URL of current page to output
-echo "The current URL is '" . $driver->getCurrentURL() . "'\n";
-
-$historyButton = $driver->findElement(WebDriverBy::id('iFrameProgramacaoCinema'));
-echo $historyButton->getText() . "'\n";
-
-$historyButton->click();
-/*
 // find element of 'History' item in menu
 $historyButton = $driver->findElement(
     WebDriverBy::cssSelector('#ca-history a')
@@ -70,4 +93,3 @@ $driver->manage()->addCookie($cookie);
 $cookies = $driver->manage()->getCookies();
 print_r($cookies);
 */
-// terminate the session and close the browser

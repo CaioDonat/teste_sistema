@@ -30,7 +30,28 @@ function RegistrarFilme(movie_name, parental_rating, size_room) {
 }
 
 function iFrameProgramacaoCinema() {
-    document.getElementById('iFrame').src = "views/programacaoCinema.html";
+
+    const iF = document.getElementById("iF");
+    iF.innerHTML += "";
+
+    iF.innerHTML += `
+    <form action="/">
+      <div class="title">
+        <h2>Cadastro de Filme</h2>
+      </div>
+      <div class="info">
+        <input id="nomeFilme" type="text" name="name" placeholder="Nome do Filme">
+        <input id="faixaEtaria" type="text" name="name" placeholder="Faixa Etaria">
+        <input id="capacidadeSala" type="text" name="name" placeholder="Capacidade da Sala">
+      </div>
+    </form>
+    <button id="registrarFilme" onclick="RegistrarFilme(
+      document.getElementById('nomeFilme').value, 
+      document.getElementById('faixaEtaria').value, 
+      document.getElementById('capacidadeSala').value
+        )">Cadastrar</button>`;
+
+    //document.getElementById('iFrame').src = "views/programacaoCinema.html";
 }
 
 function iFrameAgendamento() {
